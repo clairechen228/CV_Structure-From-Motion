@@ -50,6 +50,7 @@ def drawRANSAC(K, iter, thr_match, thr_ransac, img1, img2, save):
     # epilines(img1, img2, fx[mask.ravel() == 1], fy[mask.ravel() == 1], F2)
     # print('cv2_F \n' ,F2)
 
+    
 def drawlines(img1, img2, lines, pts1, pts2):
     r, c, _ = img1.shape
     for r, pt1, pt2 in zip(lines, pts1, pts2):
@@ -145,6 +146,7 @@ def drawCameras(K, imgs, thr_match, iter, thr_ransac, scale, save):
 
     return track2d, E1, Rset, Cset, ax
 
+
 def fig_set(ax):
     # ax.set(xlim=(1*scale,-1*scale), ylim=(1*scale,-1*scale), zlim=(1*scale,-1*scale))
     ax.set_xlabel('X-axis', fontweight ='bold')
@@ -156,6 +158,7 @@ def fig_set(ax):
     ax.plot3D([0,0], [0,1], [0,0], 'g')
     ax.plot3D([0,0], [0,0], [0,1], 'b')
 
+    
 def create_image_grid(f, img_size, grid_size):
     h, w = img_size
     x = np.linspace(-(h//2), h//2, num=grid_size[0])
@@ -164,6 +167,7 @@ def create_image_grid(f, img_size, grid_size):
     Z = np.ones(shape=grid_size) * f
 
     return xx, yy, Z
+
 
 def convert_grid_to_homogeneous(xx, yy, Z, grid_size):
     '''
@@ -182,6 +186,7 @@ def convert_grid_to_homogeneous(xx, yy, Z, grid_size):
             c += 1
     return pi
 
+
 def convert_homogeneous_to_grid(pts, grid_size):
     '''
     Convert a set of homogeneous points to a grid
@@ -192,6 +197,7 @@ def convert_homogeneous_to_grid(pts, grid_size):
 
     return xxt, yyt, Zt
 
+
 def planes(ax, r, c, grid, grid_size):
     R = np.eye(4)
     R[:3,:3] = r
@@ -201,6 +207,7 @@ def planes(ax, r, c, grid, grid_size):
     xx, yy, Z = convert_homogeneous_to_grid(grid_transformed, grid_size)
     ax.plot_surface(xx, yy, Z, alpha=0.3)
 
+    
 def cameras(ax, r, c):
     color = ['r', 'g', 'b']
     #origin
@@ -366,13 +373,3 @@ def show3dpoints(track3d):
     ax.scatter3D(X[:,0], X[:,1], X[:,2], s=10)
     plt.show()
 
-
-
-def showpc(track3d):
-    mask = np.sum(track3d, axis=1) != -3
-    X = track3d[mask]
-    print(len(X), ' of 3d points')
-
-    pcd = o3d.geometry.PointCloud()
-    pcd.points = o3d.utility.Vector3dVector(X)
-    o3d.visualization.draw_geometries([pcd])
