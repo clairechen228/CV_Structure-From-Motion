@@ -26,20 +26,20 @@ def updatePose(img, c, r):
 
 def savePX(imgs, track3d, colors):
     headX = ['x', 'y', 'z']
-    with open('./3dx.csv', 'w') as f:
+    with open('../results/3dx.csv', 'w') as f:
         writer = csv.writer(f)
         writer.writerow(headX)
         writer.writerows(track3d)
 
     headC = ['r', 'g', 'b']
-    with open('./color.csv', 'w') as f:
+    with open('../results/color.csv', 'w') as f:
         writer = csv.writer(f)
         writer.writerow(headC)
         writer.writerows(colors)
 
 
     headP = ['r11', 'r12', 'r13', 'r21', 'r22', 'r23', 'r31', 'r32', 'r33', 'c1', 'c2','c3']
-    with open('./pose.csv', 'w') as f:
+    with open('../results/pose.csv', 'w') as f:
         writer = csv.writer(f)
         writer.writerow(headP)
         for img in imgs:
@@ -52,7 +52,7 @@ def savePX(imgs, track3d, colors):
 def main():
     ## -----Parameters----- 
     show = False
-    folder_path = 'C:/Users/garba/Documents/Project/new_3Dreconstruction/hw_images'
+    folder_path = '../raw_imgs'
     K = np.asarray([
         [350, 0, 480],
         [0, 350, 270],
