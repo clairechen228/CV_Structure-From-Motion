@@ -23,13 +23,13 @@
   
   2. Essential Matrix: Estimated essential matrix between first two images
   <p align="center" width="100%">
-     <img align="center" width="55%" src="/results/figures/epipolar_lines.png">
+     <img align="center" width="70%" src="/results/figures/epipolar_lines.png">
   </p>
   
   3. Camera Pose: Estimated four camera configulations and verified by checking cheirality conditions
   <p align="center" width="100%">
-     <img align="center" width="49%" src="/results/figures/camera_configurations.png">
-     <img align="center" width="49%" src="/results/figures/triangulations.png">
+     <img align="center" width="30%" src="/results/figures/camera_configurations.png">
+     <img align="center" width="69%" src="/results/figures/triangulations.png">
   </p>
 
 #### PnP.py
@@ -41,21 +41,31 @@
    </p>
    
 #### BA_scipy.py
-   6-1. Bundle adjustment(scipy): Minimizing the reprojection error using scipy.optimize.least_squares
+   6-1. Bundle adjustment(scipy): Minimizing the reprojection error using scipy.optimize.least_squares function
 #### BA.py
    6-2. Bundle adjustment(numpy): Minimizing the reprojection error using Levenberg–Marquardt algorithm
 #### BA_jax.py
-   6-3. Bundle adjustment(JAX):
+   6-3. Bundle adjustment(JAX): Same structure as Bundle adjustment(numpy) but automatically differentiate Jacobian matrix using Jax.
   
   
 ### Results
+#### Visualization
 <p align="center" width="100%">
   <img width=29% src="/results/figures/cameras.png">
   <img width=70% src="/results/scipy/isometric_view.PNG"><br>
-  isometric view
+  camera poses(left) / isometric view(right)
 </p>
 <p align="center" width="100%">
   <img width=49% src="/results/scipy/top_view.PNG" >
   <img width=49% src="/results/scipy/front_view.PNG"><br>
   top viw(left) / front view(right)
 </p>
+
+#### Runtime Comparision
+
+|               |     BA        |    BA_scipy   |     BA_jax    |
+| ------------- | ------------- | ------------- | ------------- |
+|    runtime*   |     270s      |      2.2s     | Content Cell  |
+|error reduction|     -4.5      |      -2.4     | Content Cell  |
+
+*Runtime of 1 iteration with approximate 2000 points
