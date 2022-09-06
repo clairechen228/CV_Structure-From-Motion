@@ -65,7 +65,7 @@
 
 |               |     BA_scipy  |    BA         |     BA_jax    |
 | ------------- | ------------- | ------------- | ------------- |
-|    runtime*   |     2.2s      |     270s      |     300s      |
+|    runtime*   |     2.2s      |     2.5s      |     2.4s      |
 |error reduction|     -2.4      |     -4.5      |     -4.2      |
 
 *Runtime of 1 iteration with approximate 2000 points
