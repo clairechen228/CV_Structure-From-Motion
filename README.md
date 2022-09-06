@@ -63,9 +63,9 @@
 
 #### Runtime Comparision
 
-|               |     BA        |    BA_scipy   |     BA_jax    |
+|               |     BA_scipy  |    BA         |     BA_jax    |
 | ------------- | ------------- | ------------- | ------------- |
-|    runtime*   |     270s      |      2.2s     | Content Cell  |
-|error reduction|     -4.5      |      -2.4     | Content Cell  |
+|    runtime*   |     2.2s      |     270s      |     300s      |
+|error reduction|     -2.4      |     -4.5      |     -4.2      |
 
 *Runtime of 1 iteration with approximate 2000 points
