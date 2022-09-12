@@ -1,6 +1,6 @@
 # Structure from Motion (SfM)
 - Reconstruct the 3-dimensional structure of a scene and estimate the camera poses from a set of 2-dimensional images.
-- A comparison of different bundle adjustment methods.
+- A comparison of non-linear optimization problems (bundle adjustment).
 
 ### Input Data
 <p align="center" width="100%">
