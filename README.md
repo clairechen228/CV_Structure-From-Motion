@@ -58,7 +58,7 @@
 <p align="center" width="100%">
   <img width=49% src="/results/scipy/top_view.PNG" >
   <img width=49% src="/results/scipy/front_view.PNG"><br>
-  top viw(left) / front view(right)
+  top view(left) / front view(right)
 </p>
 
 #### Runtime Comparision
